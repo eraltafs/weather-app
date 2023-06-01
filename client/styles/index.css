@@ -157,8 +157,7 @@ h2 {
 }
 form {
   display: flex;
-  /* flex-direction: column; */
-  width: 50%;
+  width: 80%;
   margin: auto;
   gap: 10px;
   margin-bottom: 10px;
@@ -172,4 +171,7 @@ input[type="submit"] {
   text-align: center;
   margin-bottom: 10px;
 
+}
+#prefred{
+  text-align: center;
 }

@@ -8,7 +8,8 @@ const authentication = async (req, res, next) => {
   try {
     const token =
       req.headers?.authorization?.split(" ")[1] || req.cookies?.accesstoken;
-    if (token) {
+      console.log(token)
+      if (token) {
       const isTokenBlacklisted =
         (await redis.lrange("blacklistedtoken", 0, -1)).indexOf(token) !== -1;
 

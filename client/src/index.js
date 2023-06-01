@@ -1,4 +1,4 @@
-let locationHeading = document.getElementById("loacationspan")
+let locationHeading = document.getElementById("loacationspan");
 let top_temp = document.getElementById("top_temp");
 let top_temptext = document.getElementById("top_temptext");
 let top_mintemp = document.getElementById("top_mintemp");
@@ -7,32 +7,80 @@ let sunriseContent = document.getElementById("top_sunrise");
 let sunsetContent = document.getElementById("top_sunset");
 let humidity = document.getElementById("humidity");
 let windspeed = document.getElementById("top_windspeed");
-let inputbox = document.getElementById("city")
+let inputbox = document.getElementById("city");
 
-locationHeading.textContent = "Delhi"
+locationHeading.textContent = "Delhi";
 let form = document.querySelector("form");
 
 form.addEventListener("submit", (even) => {
   even.preventDefault();
-  let city = form.city.value
-  if(city){
-
-      let result = getData(city)
-      if(result){
-        localStorage.setItem("city",city)
-      }else{
-        alert("please input valid city")
-      }
-  }else{
-    alert("please input city name")
+  let city = form.city.value;
+  if (city) {
+    let result = getData(city);
+    if (result) {
+      localStorage.setItem("city", city);
+    } else {
+      alert("please input valid city");
+    }
+  } else {
+    alert("please input city name");
   }
-
 });
+let savebtn = document.getElementById("savebtn");
+savebtn.onclick = async () => {
+  let city = inputbox.value;
+  let temperatureUnit = document.getElementById("temperatureUnit").value;
+  if (city && temperatureUnit) {
+    let res = await fetch(`http://localhost:8000/user/preferences`, {
+      method: "POST",
+      body: JSON.stringify({ city, temperatureUnit }),
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(await res.json());
+  } else {
+    alert("type city name to save");
+  }
+};
+let prefredlocations = document.getElementById("prefredlocations");
+prefredlocations.onchange = () => {
+  if (prefredlocations.value) {
+    city = prefredlocations.value;
+    getData(city);
+  }
+};
+const getPreffred = async () => {
+  let res = await fetch(`http://localhost:8000/user/preferences`, {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+  });
+  let data = await res.json();
+  let { locations } = data;
+  appendlocations(locations);
+  console.log(locations);
+};
+const appendlocations = async (data) => {
+  let option = document.createElement("option");
+  option.value = "";
+  option.innerText = "choose from saved";
+  prefredlocations.append(option);
+  data.forEach((el) => {
+    let option = document.createElement("option");
+    option.value = el.city;
+    option.innerText = el.city;
+    prefredlocations.append(option);
+  });
+};
 window.onload = async () => {
-  let city = localStorage.getItem("city")||"delhi"
-  inputbox.value = localStorage.getItem("city")
-  locationHeading.textContent = localStorage.getItem("city")
+  let city = localStorage.getItem("city") || "delhi";
+  inputbox.value = localStorage.getItem("city");
+  locationHeading.textContent = localStorage.getItem("city");
   getData(city);
+  getPreffred();
 };
 const getData = async (city) => {
   const res = await fetch(`http://localhost:8000/weather?city=${city}`);
@@ -40,8 +88,7 @@ const getData = async (city) => {
   if (data.error === "city not found") {
     localStorage.setItem("city", "delhi");
     alert("invalid city name, try again please");
-    return false
-
+    return false;
   }
 
   weather = data.weather;
@@ -54,9 +101,9 @@ const getData = async (city) => {
   top_temptext.textContent = weather.current.description;
   top_mintemp.textContent = weather.current.temperature_min;
   top_maxtemp.textContent = weather.current.temperature_max;
-  locationHeading.textContent = city
+  locationHeading.textContent = city;
   localStorage.setItem("city", city);
-  return true
+  return true;
 };
 const append = (data) => {
   let forecastContainer = document.getElementById("forecast");

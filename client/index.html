@@ -29,11 +29,19 @@
     </div>
     <div id="form">
       <form>
-        <label for="city">City</label>
-        <input type="text" id="city" placeholder="city" />
+        <input type="text" id="city" placeholder="City" />
+
+        <select id="temperatureUnit">
+          <option value="">temprature unit</option>
+          <option value="Celsius">Celsius</option>
+          <option value="Farenhite">Farenhite</option>
+        </select>
         <input type="submit" value="search" />
       </form>
       <button id="savebtn">Save</button>
+    </div>
+    <div id="prefred">
+      <select id="prefredlocations"></select>
     </div>
     <h1>Loacation:<span id="loacationspan"></span></h1>
     <div id="main">

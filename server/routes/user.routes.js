@@ -7,6 +7,7 @@ const userRouter = Router()
 
 userRouter.post("/signup", async (req, res) => {
     const { email, password } = req.body;
+    console.log(req.body)
     try {
       const user = await userModel.findOne({ email });
       if (user) {
@@ -59,6 +60,7 @@ userRouter.post("/signup", async (req, res) => {
   });
   userRouter.post("/preferences", authentication, async (req, res) => {
     const userId = req.user.userId;
+    console.log(userId)
   
     try {
       const user = await userModel.findById(userId);
