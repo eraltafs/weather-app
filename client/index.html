@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="header">
+      <div class="bars">
+        <hr />
+        <hr />
+        <hr />
+      </div>
+      <div>
+        <h1><span>[</span>Weather<span>]</span></h1>
+      </div>
+      <div class="bars">
+        <hr />
+        <hr />
+        <hr />
+      </div>
+    </div>
+    <div id="main">
+      <div class="today-weather">
+        <div class="current-weather-type">
+          <div class="currentday">Today</div>
+          <div class="mostly-cloudy">
+            <img
+              id="top_icon_url"
+              src="https://www.hindustantimes.com/static-content/1m/2022/ht-images/10d.svg"
+              alt="light rain"
+              title="light rain"
+              pinger-seen="true"
+            />
+          </div>
+        </div>
+        <div class="current-temp">
+          <span class="todtemp" id="top_temp">28</span>
+          <div>
+            <span class="temp-c">C</span>
+            <span class="temp-f">F</span>
+          </div>
+        </div>
+        <div class="current-temp-nam" id="top_temptext">light rain</div>
+        <div class="temp-min-max">
+          <div class="temp-min">
+            <strong id="top_mintemp">20</strong>
+            <div class="tmin">Min</div>
+          </div>
+          <div class="temp-max">
+            <strong id="top_maxtemp">37</strong>
+            <div class="tmax">Max</div>
+          </div>
+        </div>
+      </div>
+      <div class="today-weatherinfo flexdivs">
+        <div class="tod-sunrise">
+          <ul>
+            <li>
+              <span>Sun rise</span>
+              <strong class="sunrise-time" id="top_sunrise">05:33 AM</strong>
+            </li>
+            <li>
+              <span>Average rain</span>
+              <strong id="top_averagerain">0.08 cm</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="tod-sunset">
+          <ul>
+            <li>
+              <span>Sun set</span>
+              <strong class="sunset-time" id="top_sunset">07:16 PM</strong>
+            </li>
+            <li>
+              <span>Max wind</span>
+              <strong id="top_windspeed">28.12 km/hr</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="weatherinfo">
+          <span>Humidity</span>
+          <span>40%</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
