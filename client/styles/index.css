@@ -159,6 +159,8 @@ form {
   display: flex;
   width: 80%;
   margin: auto;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -167,11 +169,10 @@ input[type="submit"] {
   display: block;
   flex-direction: column;
 }
-#form{
+#form {
   text-align: center;
   margin-bottom: 10px;
-
 }
-#prefred{
+#prefred {
   text-align: center;
 }

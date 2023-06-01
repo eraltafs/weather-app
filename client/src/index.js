@@ -34,7 +34,7 @@ savebtn.onclick = async () => {
     alert("please login to save");
     location.href = "./loginsignup.html";
   }
-  if (city && temperatureUnit) {
+  else if (city && temperatureUnit) {
     let res = await fetch(`http://localhost:8000/user/preferences`, {
       method: "POST",
       body: JSON.stringify({ city, temperatureUnit }),
@@ -65,7 +65,7 @@ const getPreffred = async () => {
   let data = await res.json();
   let { locations } = data;
   appendlocations(locations);
-  console.log(locations);
+ 
 };
 const appendlocations = async (data) => {
   let option = document.createElement("option");
