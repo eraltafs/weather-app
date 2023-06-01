@@ -30,6 +30,10 @@ let savebtn = document.getElementById("savebtn");
 savebtn.onclick = async () => {
   let city = inputbox.value;
   let temperatureUnit = document.getElementById("temperatureUnit").value;
+  if (!localStorage.getItem("token")) {
+    alert("please login to save");
+    location.href = "./loginsignup.html";
+  }
   if (city && temperatureUnit) {
     let res = await fetch(`http://localhost:8000/user/preferences`, {
       method: "POST",
