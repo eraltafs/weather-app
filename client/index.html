@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/index.css" />
+    <script
+      src="https://kit.fontawesome.com/add05b7e25.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
   </head>
   <body>
@@ -23,6 +27,15 @@
         <hr />
       </div>
     </div>
+    <div id="form">
+      <form>
+        <label for="city">City</label>
+        <input type="text" id="city" placeholder="city" />
+        <input type="submit" value="search" />
+      </form>
+      <button id="savebtn">Save</button>
+    </div>
+    <h1>Loacation:<span id="loacationspan"></span></h1>
     <div id="main">
       <div class="today-weather">
         <div class="current-weather-type">
@@ -38,20 +51,20 @@
           </div>
         </div>
         <div class="current-temp">
-          <span class="todtemp" id="top_temp">28</span>
+          <span class="todtemp" id="top_temp"></span>
           <div>
             <span class="temp-c">C</span>
             <span class="temp-f">F</span>
           </div>
         </div>
-        <div class="current-temp-nam" id="top_temptext">light rain</div>
+        <div class="current-temp-nam" id="top_temptext"></div>
         <div class="temp-min-max">
           <div class="temp-min">
-            <strong id="top_mintemp">20</strong>
+            <strong id="top_mintemp"></strong>
             <div class="tmin">Min</div>
           </div>
           <div class="temp-max">
-            <strong id="top_maxtemp">37</strong>
+            <strong id="top_maxtemp"></strong>
             <div class="tmax">Max</div>
           </div>
         </div>
@@ -61,11 +74,11 @@
           <ul>
             <li>
               <span>Sun rise</span>
-              <strong class="sunrise-time" id="top_sunrise">05:33 AM</strong>
+              <strong class="sunrise-time" id="top_sunrise"></strong>
             </li>
             <li>
-              <span>Average rain</span>
-              <strong id="top_averagerain">0.08 cm</strong>
+              <span>Max wind</span>
+              <strong id="top_windspeed"></strong>
             </li>
           </ul>
         </div>
@@ -73,19 +86,18 @@
           <ul>
             <li>
               <span>Sun set</span>
-              <strong class="sunset-time" id="top_sunset">07:16 PM</strong>
+              <strong class="sunset-time" id="top_sunset"></strong>
             </li>
-            <li>
-              <span>Max wind</span>
-              <strong id="top_windspeed">28.12 km/hr</strong>
-            </li>
+            <div class="weatherinfo">
+              <span>Humidity</span>
+              <span id="humidity"></span>
+            </div>
           </ul>
-        </div>
-        <div class="weatherinfo">
-          <span>Humidity</span>
-          <span>40%</span>
         </div>
       </div>
     </div>
+    <h1>Next five days forecast</h1>
+    <div id="forecast"></div>
   </body>
 </html>
+<script src="/src/index.js"></script>
