@@ -1,3 +1,5 @@
+let api = "https://server-alphabin.onrender.com"
+
 let signupform = document.getElementById("signupForm");
 signupform.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -8,7 +10,7 @@ signupform.addEventListener("submit", async (event) => {
     password,
   };
   console.log(JSON.stringify(data_obj));
-  let res = await fetch(`http://localhost:8000/user/signup`, {
+  let res = await fetch(`${api}/user/signup`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
     headers: {
@@ -38,7 +40,7 @@ loginform.addEventListener("submit", async (event) => {
     password,
   };
 
-  let res = await fetch(`http://localhost:8000/user/login`, {
+  let res = await fetch(`${api}/user/login`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
     headers: {

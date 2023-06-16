@@ -1,3 +1,4 @@
+let api = "https://server-alphabin.onrender.com"
 let locationHeading = document.getElementById("loacationspan");
 let top_temp = document.getElementById("top_temp");
 let top_temptext = document.getElementById("top_temptext");
@@ -8,7 +9,6 @@ let sunsetContent = document.getElementById("top_sunset");
 let humidity = document.getElementById("humidity");
 let windspeed = document.getElementById("top_windspeed");
 let inputbox = document.getElementById("city");
-
 locationHeading.textContent = "Delhi";
 let form = document.querySelector("form");
 
@@ -35,7 +35,7 @@ savebtn.onclick = async () => {
     location.href = "./loginsignup.html";
   }
   else if (city && temperatureUnit) {
-    let res = await fetch(`http://localhost:8000/user/preferences`, {
+    let res = await fetch(`${api}/user/preferences`, {
       method: "POST",
       body: JSON.stringify({ city, temperatureUnit }),
       headers: {
@@ -56,7 +56,7 @@ prefredlocations.onchange = () => {
   }
 };
 const getPreffred = async () => {
-  let res = await fetch(`http://localhost:8000/user/preferences`, {
+  let res = await fetch(`${api}/user/preferences`, {
     headers: {
       authorization: `Bearer ${localStorage.getItem("token")}`,
       "Content-Type": "application/json",
@@ -87,7 +87,7 @@ window.onload = async () => {
   getPreffred();
 };
 const getData = async (city) => {
-  const res = await fetch(`http://localhost:8000/weather?city=${city}`);
+  const res = await fetch(`${api}/weather?city=${city}`);
   data = await res.json();
   if (data.error === "city not found") {
     localStorage.setItem("city", "delhi");

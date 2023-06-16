@@ -116,10 +116,10 @@ h1 {
 #forecast {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  /* grid-template-rows: 200px; */
   gap: 10px;
   width: 80%;
   margin: auto;
+  margin-bottom: 5%;
   color: rgb(255, 255, 255);
 }
 #forecast > div {
