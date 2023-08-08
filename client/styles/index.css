@@ -176,3 +176,30 @@ input[type="submit"] {
 #prefred {
   text-align: center;
 }
+@media screen and (min-width: 250px) and (max-width: 630px) {
+  #header {
+    width: 60%;
+  }
+  #main {
+    width: 90%;
+
+  }
+  form {
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+    margin-bottom: 0px;
+  }
+  button{
+    margin-top: 10px;
+  }
+  #forecast {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5%;
+    color: rgb(255, 255, 255);
+  }
+}
